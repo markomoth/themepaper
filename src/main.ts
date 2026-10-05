@@ -149,7 +149,7 @@ function buildDeck() {
 
     const tip = document.createElement("span");
     tip.className = "blade-tip";
-    tip.innerHTML = `<span class="blade-name">${escapeHtml(s.family)}</span><span class="blade-variant">${escapeHtml(s.variant)}</span><span class="blade-meta">${pad(index + 1)}/${SCHEMES.length} · ${s.chips.length} chips · ${s.kind}</span>`;
+    tip.innerHTML = `<span class="blade-name">${escapeHtml(s.family)}</span><span class="blade-variant">${escapeHtml(s.variant)}</span><span class="blade-meta">${pad(index + 1)}/${SCHEMES.length}<span class="meta-chips"> · ${s.chips.length} chips</span> · ${s.kind}</span>`;
 
     b.append(head, chips, tip);
     b.addEventListener("click", () => {

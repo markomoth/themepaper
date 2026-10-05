@@ -783,11 +783,24 @@ input[type="range"]::-moz-range-thumb {
     padding: 8px 8px 6px 10px;
   }
 
+  /* Fanned on a phone, the visible strip of each blade is widest at its tip:
+     set the label there, condensed, on one line. */
   .deck.open .blade-tip {
-    width: 176px;
+    width: 128px;
     flex-direction: row;
-    gap: 5px;
-    padding-top: 4px;
+    justify-content: flex-end;
+    gap: 4px;
+    padding: 2px 8px 0 0;
+    font-stretch: 66%;
+  }
+
+  .deck.open .blade-name {
+    font-stretch: 66%;
+    letter-spacing: 0.02em;
+  }
+
+  .meta-chips {
+    display: none;
   }
 
   .deck.open .blade-meta {
