@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Recolour any wallpaper into Gruvbox, Nord, Catppuccin, Dracula, Solarized and more. Runs in your browser; nothing is uploaded." />
+    <meta name="theme-color" content="#282828" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>themepaper</title>
+  </head>
+  <body>
+    <header class="bar">
+      <a class="mark" href="./" aria-label="themepaper home">
+        <span class="mark-chip" aria-hidden="true"></span>
+        <span class="mark-word">themepaper</span>
+      </a>
+      <p class="status" id="status" aria-live="polite"></p>
+      <div class="actions">
+        <button class="btn" id="open" type="button">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 13V3.5M6 7l4-4 4 4M3.5 12.5v4h13v-4" /></svg>
+          <span>Open<span class="long">&nbsp;image</span></span>
+        </button>
+        <button class="btn btn-reverse" id="download" type="button" disabled>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v9.5M6 9l4 4 4-4M3.5 12.5v4h13v-4" /></svg>
+          <span id="download-label">Download<span class="long">&nbsp;PNG</span></span>
+        </button>
+        <input id="file" type="file" accept="image/*" hidden />
+      </div>
+    </header>
+
+    <main class="stage" id="stage">
+      <div class="print" id="print" hidden>
+        <img class="original" id="original" alt="" draggable="false" />
+        <canvas class="result" id="result" aria-label="Recoloured wallpaper preview"></canvas>
+        <span class="tag tag-left">Original</span>
+        <span class="tag tag-right" id="tag-scheme"></span>
+        <div class="split" id="split" role="slider" tabindex="0" aria-label="Compare original and recoloured" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <span class="split-grip" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><path d="M8 6l-4 4 4 4M12 6l4 4-4 4" /></svg>
+          </span>
+        </div>
+      </div>
+      <p class="stage-note" id="stage-note" hidden></p>
+      <div class="drop-hint" aria-hidden="true">Drop to repaint</div>
+    </main>
+
+    <div class="dock">
+      <section class="deck" id="deck" aria-label="Colour schemes">
+        <div class="blades" id="blades" role="radiogroup" aria-label="Colour scheme"></div>
+        <button class="rivet" id="rivet" type="button" aria-expanded="false" aria-controls="blades" aria-label="Fan out all schemes">
+          <svg class="rivet-art" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="12.5" fill="#8a6a3c" /><circle cx="13" cy="13" r="10.5" fill="#c49a5e" /><path d="M5.6 10.4a8 8 0 0 1 9.9-5.2" fill="none" stroke="#ecd3a2" stroke-width="2.2" stroke-linecap="round" /><circle cx="13" cy="13" r="2.4" fill="#8a6a3c" /></svg>
+        </button>
+        <button class="fan-cue" id="fan-cue" type="button" aria-expanded="false" aria-controls="blades">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16L16 16M4 16L14.4 10M4 16L10 5.6" /></svg>
+          <span id="fan-cue-label">Fan out</span>
+        </button>
+      </section>
+
+      <section class="card controls" aria-label="Recolour settings">
+        <div class="row">
+          <span class="label" id="mode-label">Mode</span>
+          <div class="seg" role="radiogroup" aria-labelledby="mode-label">
+            <button type="button" role="radio" data-mode="smooth" aria-checked="true">Smooth</button>
+            <button type="button" role="radio" data-mode="strict" aria-checked="false">Strict</button>
+          </div>
+        </div>
+        <p class="hint" id="mode-hint"></p>
+        <div class="row">
+          <label class="label" for="strength">Strength</label>
+          <input id="strength" type="range" min="0" max="100" step="1" value="100" />
+          <output class="num" id="strength-out" for="strength">100%</output>
+        </div>
+        <div class="row">
+          <span class="label" id="dither-label">Dither</span>
+          <button class="toggle" id="dither" type="button" role="switch" aria-checked="true" aria-labelledby="dither-label">
+            <span class="toggle-on">On</span><span class="toggle-off">Off</span>
+          </button>
+          <span class="hint-inline" id="dither-note">Strict only</span>
+        </div>
+        <p class="fine">Runs in your browser. Nothing is uploaded.</p>
+      </section>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
