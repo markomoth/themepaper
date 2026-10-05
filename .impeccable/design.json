@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-05T14:00:00Z",
+  "title": "Design System: themepaper",
+  "extensions": {
+    "colorMeta": {
+      "card-stock": { "role": "neutral", "displayName": "Card Stock", "canonical": "#fafaf7", "tonalRamp": ["#0b0b09", "#252523", "#424240", "#61615f", "#828280", "#a5a5a2", "#c9c9c6", "#efefec"] },
+      "card-ink": { "role": "neutral", "displayName": "Card Ink", "canonical": "#141414", "tonalRamp": ["#0b0b0b", "#252525", "#424242", "#616161", "#828282", "#a5a5a5", "#c9c9c9", "#eeeeee"] },
+      "card-muted": { "role": "neutral", "displayName": "Card Muted", "canonical": "#5b5b57", "tonalRamp": ["#0b0b08", "#252522", "#42423e", "#61615d", "#83837e", "#a5a5a1", "#c9c9c5", "#efefea"] },
+      "card-rule": { "role": "neutral", "displayName": "Card Rule", "canonical": "#dcdcd6", "tonalRamp": ["#0b0b08", "#252521", "#42423d", "#62625c", "#83837d", "#a5a5a0", "#c9c9c4", "#efefe9"] },
+      "counter-ground": { "role": "primary", "displayName": "Counter Ground (runtime: scheme bg; default Gruvbox Dark)", "canonical": "var(--ground)", "tonalRamp": ["#0b0b0b", "#252525", "#424242", "#616161", "#828282", "#a5a5a5", "#c9c9c9", "#eeeeee"] },
+      "counter-ink": { "role": "primary", "displayName": "Counter Ink (runtime: scheme fg)", "canonical": "var(--ink)", "tonalRamp": ["#140800", "#302300", "#4e401c", "#6e603b", "#90815b", "#b3a47d", "#d8c8a0", "#feedc4"] },
+      "counter-ink-muted": { "role": "neutral", "displayName": "Counter Ink Muted (runtime: scheme muted)", "canonical": "var(--ink-muted)", "tonalRamp": ["#130900", "#2f2311", "#4d402d", "#6d5f4b", "#8e806c", "#b2a38d", "#d6c7b1", "#fcecd5"] },
+      "counter-accent": { "role": "secondary", "displayName": "Counter Accent (runtime: scheme accent)", "canonical": "var(--accent)", "tonalRamp": ["#210000", "#401a00", "#603900", "#825900", "#a57a12", "#c99e42", "#efc268", "#ffe78d"] },
+      "brass-rim": { "role": "tertiary", "displayName": "Brass Rim", "canonical": "#8a6a3c", "tonalRamp": ["#1c0300", "#391e00", "#593b08", "#7a5b2d", "#9d7c4e", "#c19f70", "#e6c393", "#ffe8b7"] },
+      "brass-face": { "role": "tertiary", "displayName": "Brass Face", "canonical": "#c49a5e", "tonalRamp": ["#1f0100", "#3e1b00", "#5e3900", "#7f5919", "#a37a3e", "#c79d61", "#edc184", "#ffe6a8"] },
+      "brass-glint": { "role": "tertiary", "displayName": "Brass Glint", "canonical": "#ecd3a2", "tonalRamp": ["#180600", "#352100", "#533e0d", "#745e30", "#967f51", "#baa272", "#dfc695", "#ffebba"] }
+    },
+    "typographyMeta": {
+      "body": { "displayName": "Body", "purpose": "Status line, variant names, hints, stage note (max 46ch)." },
+      "action": { "displayName": "Action", "purpose": "Buttons, segmented options, fan cue." },
+      "wordmark": { "displayName": "Wordmark", "purpose": "Lowercase 'themepaper' on the wordmark plate only." },
+      "title": { "displayName": "Title", "purpose": "Uppercase scheme family name at the blade tip; condenses to width 66% / 0.02em on fanned phone blades." },
+      "label": { "displayName": "Label", "purpose": "Uppercase control-row labels on the settings card." },
+      "tag": { "displayName": "Tag", "purpose": "Uppercase print-corner tags and the scheme name leading the status line." },
+      "data": { "displayName": "Data", "purpose": "Hex codes (vertical on chips), numeric readouts, key names. Mono is data only." }
+    },
+    "shadows": [
+      { "name": "card-rest", "value": "0 1px 1px rgb(0 0 0 / 0.16), 0 8px 22px -8px rgb(0 0 0 / 0.5)", "purpose": "Every card-stock object resting on the counter: blades, settings card, tags, split grip, wordmark plate." },
+      { "name": "print-rest", "value": "0 2px 3px rgb(0 0 0 / 0.2), 0 24px 60px -24px rgb(0 0 0 / 0.6)", "purpose": "The photo print, the largest sheet on the counter." },
+      { "name": "blade-lifted", "value": "0 2px 3px rgb(0 0 0 / 0.2), 0 18px 34px -10px rgb(0 0 0 / 0.65)", "purpose": "Hovered/focused blade in the open fan, paired with a 14px lift along its axis." },
+      { "name": "punched-hole", "value": "inset 0 1px 2px rgb(0 0 0 / 0.35)", "purpose": "The hole in each blade head the rivet passes through." },
+      { "name": "sliver", "value": "0 -1px 0 rgb(0 0 0 / 0.35)", "purpose": "Unchosen blades in the closed deck, with filter brightness(0.62) saturate(0.85)." },
+      { "name": "rivet-drop", "value": "drop-shadow(0 1px 1px rgb(0 0 0 / 0.45))", "purpose": "Filter on the brass rivet." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The single movement curve: fan, lift, pull, rivet turn, counter flood." },
+      { "name": "fan", "value": "460ms", "purpose": "Blade rotation about the rivet; drops to 0ms under prefers-reduced-motion." },
+      { "name": "fan-stagger-open", "value": "12ms per blade", "purpose": "Per-blade delay when the deck fans open." },
+      { "name": "fan-stagger-close", "value": "6ms per blade (reverse order)", "purpose": "Per-blade delay as the deck swings shut." },
+      { "name": "blade-hover-lift", "value": "220ms, translateX 14px", "purpose": "Preview lift of a hovered/focused blade in the open fan." },
+      { "name": "pull", "value": "160ms, translateX 36px; deck closes after 170ms", "purpose": "Committing a blade before the deck swings shut." },
+      { "name": "flood", "value": "420ms", "purpose": "Counter background/ink and wordmark chip transition to the committed scheme; snaps under reduced motion." },
+      { "name": "rivet-turn", "value": "300ms, rotate(-30deg) scale(1.08)", "purpose": "Rivet hover." }
+    ],
+    "breakpoints": [
+      { "name": "narrow", "value": "860px" },
+      { "name": "compact", "value": "480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action on the counter, in the scheme's ink.",
+      "html": "<button class=\"ds-btn\"><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M10 13V3.5M6 7l4-4 4 4M3.5 12.5v4h13v-4\"/></svg><span>Open image</span></button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; border: 1px solid color-mix(in oklab, var(--ink, #ebdbb2) 55%, transparent); border-radius: 2px; background: transparent; color: var(--ink, #ebdbb2); font: 700 13px/1.45 'Archivo Variable', Archivo, system-ui, sans-serif; letter-spacing: 0.01em; cursor: pointer; transition: background-color 160ms, border-color 160ms; } .ds-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; } .ds-btn:hover { border-color: var(--ink, #ebdbb2); background: color-mix(in oklab, var(--ink, #ebdbb2) 10%, transparent); } .ds-btn:focus-visible { outline: 2px solid var(--accent, #fabd2f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Reverse Button",
+      "kind": "button",
+      "refersTo": "button-reverse",
+      "description": "The primary action (Download PNG), reversed to counter ink.",
+      "html": "<button class=\"ds-btn-reverse\"><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M10 3v9.5M6 9l4 4 4-4M3.5 12.5v4h13v-4\"/></svg><span>Download PNG</span></button>",
+      "css": ".ds-btn-reverse { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; border: 1px solid var(--ink, #ebdbb2); border-radius: 2px; background: var(--ink, #ebdbb2); color: var(--ground, #282828); font: 700 13px/1.45 'Archivo Variable', Archivo, system-ui, sans-serif; letter-spacing: 0.01em; cursor: pointer; transition: background-color 160ms; } .ds-btn-reverse svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; } .ds-btn-reverse:hover { background: color-mix(in oklab, var(--ink, #ebdbb2) 86%, var(--ground, #282828)); } .ds-btn-reverse:focus-visible { outline: 2px solid var(--accent, #fabd2f); outline-offset: 3px; } .ds-btn-reverse:disabled { opacity: 0.4; cursor: not-allowed; }"
+    },
+    {
+      "name": "Settings Card",
+      "kind": "card",
+      "refersTo": "card-controls",
+      "description": "Card-stock controls card resting on the counter.",
+      "html": "<section class=\"ds-card\"><div class=\"ds-row\"><span class=\"ds-label\">Strength</span><span class=\"ds-track\"></span><output class=\"ds-num\">100%</output></div><p class=\"ds-fine\">Runs in your browser. Nothing is uploaded.</p></section>",
+      "css": ".ds-card { width: 336px; padding: 12px 14px 10px; display: grid; gap: 6px; background: #fafaf7; color: #141414; border-radius: 3px; box-shadow: 0 1px 1px rgb(0 0 0 / 0.16), 0 8px 22px -8px rgb(0 0 0 / 0.5); font: 400 13px/1.45 'Archivo Variable', Archivo, system-ui, sans-serif; } .ds-row { display: grid; grid-template-columns: 76px 1fr auto; align-items: center; gap: 10px; min-height: 28px; } .ds-label { font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; font-stretch: 84%; } .ds-track { height: 2px; background: #141414; } .ds-num { min-width: 4ch; text-align: right; font-family: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; } .ds-fine { margin: 2px 0 0; padding-top: 8px; border-top: 1px solid #dcdcd6; color: #5b5b57; }"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "chip",
+      "refersTo": "segmented-option",
+      "description": "Two-way choice on card stock; the selected half reverses to ink.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\"><button role=\"radio\" aria-checked=\"true\">Smooth</button><button role=\"radio\" aria-checked=\"false\">Strict</button></div>",
+      "css": ".ds-seg { display: grid; grid-template-columns: 1fr 1fr; width: 220px; border: 1px solid #141414; border-radius: 2px; overflow: hidden; background: #fafaf7; } .ds-seg button { height: 28px; border: 0; background: transparent; color: #141414; font: 700 13px/1.45 'Archivo Variable', Archivo, system-ui, sans-serif; cursor: pointer; } .ds-seg button + button { border-left: 1px solid #141414; } .ds-seg button[aria-checked=\"true\"] { background: #141414; color: #fafaf7; } .ds-seg button[aria-checked=\"false\"]:hover { background: color-mix(in oklab, #141414 8%, #fafaf7); } .ds-seg button:focus-visible { outline: 2px solid #141414; outline-offset: 2px; }"
+    },
+    {
+      "name": "Print Tag",
+      "kind": "chip",
+      "refersTo": "print-tag",
+      "description": "Card-stock label pinned to a corner of the photo print.",
+      "html": "<span class=\"ds-tag\">Gruvbox Dark</span>",
+      "css": ".ds-tag { display: inline-block; padding: 3px 8px; background: #fafaf7; color: #141414; font: 700 13px/1.45 'Archivo Variable', Archivo, system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.06em; font-stretch: 88%; border-radius: 2px; box-shadow: 0 1px 1px rgb(0 0 0 / 0.16), 0 8px 22px -8px rgb(0 0 0 / 0.5); }"
+    },
+    {
+      "name": "Fan-Deck Blade",
+      "kind": "custom",
+      "refersTo": "blade",
+      "description": "Signature component: card-stock blade with punched head, printed chips with vertical mono hex, and a tip that reverses when selected.",
+      "html": "<button class=\"ds-blade\" role=\"radio\" aria-checked=\"true\"><span class=\"ds-blade-head\"></span><span class=\"ds-chips\"><span style=\"background:#282828;color:#ebdbb2\"><i>282828</i></span><span style=\"background:#fb4934;color:#282828\"><i>fb4934</i></span><span style=\"background:#b8bb26;color:#282828\"><i>b8bb26</i></span><span style=\"background:#fabd2f;color:#282828\"><i>fabd2f</i></span><span style=\"background:#83a598;color:#282828\"><i>83a598</i></span></span><span class=\"ds-blade-tip\"><b>Gruvbox</b><span>Dark</span><small>03/20 · 13 chips · dark</small></span></button>",
+      "css": ".ds-blade { display: flex; align-items: stretch; width: 520px; height: 84px; padding: 0; border: 0; border-radius: 42px 3px 3px 42px; background: #fafaf7; color: #141414; text-align: left; overflow: hidden; cursor: pointer; box-shadow: 0 1px 1px rgb(0 0 0 / 0.16), 0 8px 22px -8px rgb(0 0 0 / 0.5); font: 400 13px/1.45 'Archivo Variable', Archivo, system-ui, sans-serif; transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms; } .ds-blade:hover { transform: translateX(14px); box-shadow: 0 2px 3px rgb(0 0 0 / 0.2), 0 18px 34px -10px rgb(0 0 0 / 0.65); } .ds-blade:focus-visible { outline: 2px solid #141414; outline-offset: -4px; } .ds-blade-head { flex: none; width: 84px; position: relative; } .ds-blade-head::after { content: ''; position: absolute; left: 33px; top: calc(50% - 9px); width: 18px; height: 18px; border-radius: 50%; background: color-mix(in oklab, #141414 14%, #fafaf7); box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.35); } .ds-chips { flex: 1; display: flex; gap: 2px; margin: 0 0 6px; } .ds-chips > span { flex: 1 1 0; display: flex; justify-content: center; padding-top: 6px; font: 500 13px/1 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, monospace; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; } .ds-chips i { font-style: normal; writing-mode: vertical-rl; transform: rotate(180deg); } .ds-blade-tip { flex: none; width: 168px; display: flex; flex-direction: column; padding: 10px 12px 8px 14px; } .ds-blade-tip b { font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; font-stretch: 84%; } .ds-blade-tip small { margin-top: auto; font-size: 13px; font-stretch: 88%; color: #5b5b57; } .ds-blade[aria-checked=\"true\"] .ds-blade-tip { background: #141414; color: #fafaf7; } .ds-blade[aria-checked=\"true\"] .ds-blade-tip small { color: color-mix(in oklab, #fafaf7 72%, #141414); }"
+    },
+    {
+      "name": "Brass Rivet",
+      "kind": "custom",
+      "refersTo": "rivet",
+      "description": "Flat brass SVG pivot; the deck's open/close button.",
+      "html": "<button class=\"ds-rivet\" aria-label=\"Fan out all schemes\"><svg viewBox=\"0 0 26 26\" aria-hidden=\"true\"><circle cx=\"13\" cy=\"13\" r=\"12.5\" fill=\"#8a6a3c\"/><circle cx=\"13\" cy=\"13\" r=\"10.5\" fill=\"#c49a5e\"/><path d=\"M5.6 10.4a8 8 0 0 1 9.9-5.2\" fill=\"none\" stroke=\"#ecd3a2\" stroke-width=\"2.2\" stroke-linecap=\"round\"/><circle cx=\"13\" cy=\"13\" r=\"2.4\" fill=\"#8a6a3c\"/></svg></button>",
+      "css": ".ds-rivet { width: 26px; height: 26px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.45)); transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-rivet svg { width: 26px; height: 26px; display: block; } .ds-rivet:hover { transform: rotate(-30deg) scale(1.08); } .ds-rivet:focus-visible { outline: 2px solid #fabd2f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Split Grip",
+      "kind": "custom",
+      "refersTo": "split-grip",
+      "description": "Card-stock grip on the compare split line.",
+      "html": "<span class=\"ds-grip\" tabindex=\"0\" role=\"slider\" aria-label=\"Compare\" aria-valuenow=\"50\"><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M8 6l-4 4 4 4M12 6l4 4-4 4\"/></svg></span>",
+      "css": ".ds-grip { display: inline-grid; place-items: center; width: 30px; height: 44px; background: #fafaf7; color: #141414; border-radius: 2px; cursor: ew-resize; box-shadow: 0 1px 1px rgb(0 0 0 / 0.16), 0 8px 22px -8px rgb(0 0 0 / 0.5); } .ds-grip svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; } .ds-grip:focus-visible { outline: 2px solid #fabd2f; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Fan Deck",
+    "overview": "Every colour scheme is a blade of a paint-store fan deck: matte printed chips on white card stock, riveted at one corner with a brass pivot. You fan the deck out, hover a blade to see the photo repainted in it, and pull it to commit. The page itself is the store counter, and the counter takes on the colour of whatever blade was last pulled: its background floods to the scheme's background, and the text on it turns to the scheme's foreground. So the interface always sits inside the palette the user picked.\n\nTwo materials share the screen and never mix. The counter is changeable: it carries the scheme's colours, the top bar, and the photo print. The card stock is fixed: blades, the settings card, print tags and the split grip are always off-white card printed in near-black ink, whatever the counter is doing. The photo is the hero. The UI is a few small objects lying on the counter around it, and they lift off it with soft shadows.\n\nHierarchy runs at a single type size, the way a timetable does. Rank comes from weight, case, width and reversal (ink-on-card flipped to card-on-ink), not from scale. Hex values and numbers are data and set in mono. Motion follows one grammar: rotation about the rivet, exponential ease-out, staggered blade by blade.",
+    "keyCharacteristics": [
+      "The counter floods to the committed scheme's bg/fg. Previewing repaints only the print. The counter floods only on commit.",
+      "Fixed card stock (#fafaf7 / #141414) for every object lying on the counter.",
+      "One type size (13px). Rank by weight, case, width and reversal.",
+      "JetBrains Mono only for hex codes and numeric readouts.",
+      "A flat brass SVG rivet is the deck's pivot and its open/close control.",
+      "Soft, diffuse offset shadows. Card stock rests on the counter; it does not float.",
+      "One motion grammar: exponential ease-out, 460ms fan with per-blade stagger, short pull."
+    ],
+    "rules": [
+      { "name": "The Flood-on-Commit Rule", "body": "Only a pulled (committed) blade repaints the counter. Hover and arrow-key preview repaint the photo print alone and leave the ground, ink and accent untouched.", "section": "colors" },
+      { "name": "The Fixed Stock Rule", "body": "Card-stock surfaces never take scheme colours. A blade, card, tag or grip is #fafaf7 with #141414 ink on every scheme, light or dark.", "section": "colors" },
+      { "name": "The Official Hex Rule", "body": "Chip colours and counter floods come straight from each scheme's official values in `schemes.ts`. Never tint, approximate or blend them for display.", "section": "colors" },
+      { "name": "The One Size Rule", "body": "Every piece of text is 13px. To rank something, change its weight, case, width or reverse it onto ink. Never change its size.", "section": "typography" },
+      { "name": "The Data-Only Mono Rule", "body": "JetBrains Mono sets hex codes, numeric readouts and key names. Words are never set in mono.", "section": "typography" },
+      { "name": "The Brightest Blade Rule", "body": "When the deck is closed, only the chosen blade lies flat at full brightness. The others are dimmed slivers fanned 0.2° apart behind it.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do put every object lying on the counter (blades, the settings card, print tags, the split grip, the wordmark plate) on card stock (#fafaf7, ink #141414) with the card rest shadow. Bar actions, status and the fan cue go directly on the counter in scheme ink.",
+      "Do set text on the counter in the scheme's own fg/muted, and use the scheme accent only for the wordmark chip, focus and selection.",
+      "Do rank text with weight, uppercase, the width axis (84-88%, down to 66% for fanned phone labels) and ink reversal, all at 13px.",
+      "Do set hex codes and numeric readouts in JetBrains Mono with tabular numerals.",
+      "Do animate movement as rotation or a slide along the blade axis, with exponential ease-out (`cubic-bezier(0.16, 1, 0.3, 1)`) and per-blade stagger. Snap under reduced motion.",
+      "Do keep previews confined to the print. Only flood the counter on commit."
+    ],
+    "donts": [
+      "Don't introduce a second font size, or a display face for headings.",
+      "Don't tint card stock with the active scheme.",
+      "Don't use hard-edged offset shadows or glows. Card stock casts soft, downward shadows only.",
+      "Don't use brass anywhere except the rivet.",
+      "Don't approximate or restyle a scheme's colours. Chips and floods use the official hex values.",
+      "Don't set words in mono, or hex values in Archivo."
+    ]
+  }
+}
